@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>JL : 2014</title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.fullPage.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+			    $('#fullpage').fullpage({
+			    	menu: true,
+			    	navigation: true,
+					navigationPosition: 'right',
+					anchors: ['_1','_2','_3','_4','_5','_6','_7','_8','_9','_10','_11','_12','_13','_14','_15','_16'],
+					afterLoad: function(anchorLink, index){
+						$('.section sub').fadeIn();
+						if(index == 1){
+							$('.fa-arrow-circle-up').addClass('hidden');
+						}
+						if(index==1||index==2||index==3||index==4||index==5||index==6||index==7){
+							$('#year-4').removeClass('gone');
+							$('#year-5').removeClass('arrived');
+						}
+						if(index == 8){
+							$('#year-4').addClass('gone');
+							$('#year-5').addClass('arrived');
+							// $('#section1').find('p').first().fadeIn(1800, function(){
+							// 	$('#section1').find('p').last().fadeIn(1800);
+							// });;
+						}
+						if(index == 9){
+							$('#year-4').addClass('gone');
+							$('#year-5').addClass('arrived');
+						}
+						if(index == 11){
+							$('#year').fadeOut();
+							$('.fa-arrow-circle-down').addClass('hidden');
+							// $('#s15 img').src = "img/JL_Logo_200.gif?p" + new Date().getTime();
+						}
+						
+						//section 3
+						// if(anchorLink == '3rdPage'){
+						// 	//moving the image
+						// 	console.log('3rd');
+						// 	$('#section2').find('.intro').delay(500).animate({
+						// 		left: '0%'
+						// 	}, 1500, 'easeOutExpo');
+						// }
+					},
+					onLeave: function(index, newIndex, direction){
+						console.log(newIndex);
+						console.log(direction);
+						if ($('.section sub')[newIndex-1]) {
+							var w = $('.section sub')[newIndex-1].offsetWidth;
+							console.log(w);
+							
+							$('#black-bar').animate({
+								width: w
+							},800);
+						}
+						$('.section sub').hide();
+						if(index == 1 && direction == 'down'){
+							$('.fa-arrow-circle-up').removeClass('hidden');
+						}
+						if(index == 7 && direction == 'down'){
+							$('#year-4').addClass('gone');
+							$('#year-5').addClass('arrived');
+						}
+						if(index == 8 && direction == 'up'){
+							$('#year-4').removeClass('gone');
+							$('#year-5').removeClass('arrived');
+						}
+						if(index == 9 && direction == 'down'){
+							$('#year').fadeOut();
+							$('#logo').fadeIn();
+						}
+						if(index == 10 && direction == 'up'){
+							$('#year').fadeIn();
+							$('#logo').fadeOut();
+						}
+						if(index == 10 && direction == 'down'){
+							$('#logo').fadeOut();
+						}
+						if(index == 11 && direction == 'up'){
+							$('#logo').fadeIn();
+							$('.fa-arrow-circle-down').removeClass('hidden');;
+						}
+					}
+
+				});
+
+				$("#footer .fa-arrow-circle-up").click(function(e) {
+					e.preventDefault();
+					$.fn.fullpage.moveSectionUp();
+				});
+				$("#footer .fa-arrow-circle-down").click(function(e) {
+					e.preventDefault();
+					$.fn.fullpage.moveSectionDown();
+				});
+			});
+		</script>
+		<link href="css/font-awesome.css" rel="stylesheet"/>
+		<style>
+			@import url(http://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans:300|Vidaloka);
+			html, body {
+				margin: 0 0;
+				padding: 0 0;
+				fontafamily: "Vidaloka", serif;
+			}
+			h3 {
+				font-family: "Cutive Mono", serif;
+			}
+			#year {
+				text-align: center;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				margin-left: -110px;
+				margin-top: -100px;
+				font-size: 5em;
+				letter-spacing: .25em;
+				width: 200px;
+				z-index: 999;
+			}
+			.roller {
+				position: relative;
+			}
+			#year-2 {
+				position: relative;
+				right: 6px;
+			}
+			#year-4, #year-5 {
+				position: relative;
+				transition: all 2s;
+			}
+			#year-4 {
+				top: 0;
+			}
+			#year-5 {
+				left: -60px;
+				top: 70px;
+				opacity: 0.01;
+			}
+			#year-5.arrived {
+				top: 0px;
+				opacity: 1;
+			}
+			#year-4.gone {
+				top: -70px;
+				opacity: 0.01;
+			}
+			.section {
+				text-align: center;
+				font-size: 1.5em;
+				letter-spacing: .15em;
+				background-size: cover;
+			}
+			.section p {
+				z-index: 9;
+				 /*position: relative;
+				 top: 50%;
+				 transform: translateY(-50%);*/
+			}
+			.section p span {
+				border-bottom: 1px solid black;
+				padding-bottom: 10px;
+			}
+			.section sub {
+				position: absolute;
+				bottom: 58px;
+				left: 120px;
+				font-family: "Cutive Mono", serif;
+				font-weight: 500;
+				font-size: .5em;
+				padding: 3px;
+				color: white;
+				background-color: black;
+			}
+			#s1 {
+				background-image: url(img/bg1.jpg);
+				/*padding: 30% 0 0 0;*/
+			}
+			#s2{
+				background-image: url(img/bg2.jpg);
+				/*padding: 6% 0 0 0;*/
+			}
+			#s3{
+				background-image: url(img/bg3.jpg);
+				/*padding: 6% 0 0 0;*/
+			}
+			#s4{
+				background-image: url(img/bg4.jpg);
+				/*padding: 6% 0 0 0;*/
+			}
+			#s5{
+				background-image: url(img/bg5.jpg);
+				/*padding: 6% 0 0 0;*/
+			}
+			#s6{
+				background-image: url(img/bg6.jpg);
+				/*padding: 6% 0 0 0;*/
+			}
+
+			#nav {
+				position: fixed;
+				width: 0px;
+				height: 200px;
+				left: 5px;
+				top: 50%;
+				margin-top: -100px;
+				overflow: hidden;
+				z-index: 99;
+			}
+			#fp-nav ul li a span {
+				border: 1px solid #dedede;
+				width: 5px;
+				height: 5px;
+				transition: all 0.5s;
+			}
+			#fp-nav ul li a.active span {
+				background: #dedede;
+			}
+			#logo {
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				width: 200px;
+				height: 200px;
+				margin-left: -100px;
+				margin-top: -100px;
+				display: none;
+			}
+			#footer {
+				text-align: center;
+				position: fixed;
+				left: 50px;
+				bottom: 50px;
+				font-size: 1em;
+				width: 10px;
+				z-index: 99;
+			}
+			#footer i {
+				transition: opacity 1s;
+				cursor: pointer;
+			}
+			#black-bar {
+				background-color: black;
+				display: block;
+				position: fixed;
+				bottom: 58px;
+				left: 120px;
+				width: 3px;
+				height: 18px;
+				z-index: -99;
+			}
+			.hidden {
+				opacity: 0;
+			}
+		</style>
+	</head>
+	<body>
+		
+
+		<div id="year"><span id="year-2">2</span>01<span class="roller"><span id="year-4">4</span><span id="year-5">5</span></span></div>
+		<div id="fullpage">
+			<div id="s0" class="section">
+				<p>:</p>
+				<sub></sub>
+			</div>
+			<div id="s1" class="section">
+				<p>was a year of <span>examination</span></p>
+				<sub>Master of Architecture I thesis: 4 Osmanthus Rd.</sub>
+			</div>
+			<div id="s2" class="section">
+				<p><span>actuation</span></p>
+				<sub>Last lecture (MIT): Sustainable Strategies for Businesses</sub>
+			</div>
+			<div id="s3" class="section">
+				<p><span>contemplation</span></p>
+				<sub>Stadt Park Donau, Ingolstadt, Germany.</sub>
+			</div>
+			<div id="s4" class="section">
+				<p><span>reconnection</span></p>
+				<sub>LPCUWC'04 Ten Year Reunion.</sub>
+			</div>
+			<div id="s5" class="section">
+				<p><span>migration</span></p>
+				<sub>Riverside, CA</sub>
+			</div>
+			<div id="s6" class="section">
+				<p>and <span>orientation</span></p>
+				<sub>Long way to go.</sub>
+			</div>
+			<div id="s7" class="section">
+				<p><em>Thank you</em> for being with me.</p>
+				<sub>all along.</sub>
+			</div>
+			<div id="s8" class="section">
+				<p>To another year:</p>
+				<sub></sub>
+			</div>
+			<div id="s9" class="section">
+			</div>
+			<div id="s10" class="section">
+				<form>
+					<label>A few words:</label>
+					<textarea></textarea>
+					<button>Send</button>
+				</form>
+			</div>
+		</div>
+		<div id="logo"><img src="img/JL_Logo_200.gif" width="200"/></div>
+		<div id="footer">
+			<i class="fa fa-arrow-circle-up fa-fw"></i>
+			<i class="fa fa-arrow-circle-down fa-fw"></i>
+		</div>
+		<div id="black-bar"></div>
+	</body>
+</html>

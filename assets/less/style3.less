@@ -1,0 +1,395 @@
+@import "elements.less";
+
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans:300,700|Vidaloka);
+// @font-face { 
+// 	font-family: 'Letter Gothic Std'; 
+// 	src: url('../fonts/letter_gothic_std.eot'); 
+// 	src: url('../fonts/letter_gothic_std.eot?#iefix') format('embedded-opentype'), 
+// 		 url('../fonts/letter_gothic_std.svg#Letter Gothic Std') format('svg'), 
+// 		 url('../fonts/letter_gothic_std.woff') format('woff'), 
+// 		 url('../fonts/letter_gothic_std.ttf') format('truetype'); 
+// 	font-weight: normal; 
+// 	font-style: normal;
+// }
+
+
+// ============================================================ //
+// Variables //
+// ============================================================ //
+
+@primary: #383838;
+@secondary: #C0C0C0;
+@almostwhite: #D3D3D3;
+@background: #FEFEFE;
+
+@gutter: 20px;
+
+// ============================================================ //
+// Mixins //
+// ============================================================ //
+
+.box-emboss(@opacity, @opacity2){
+    box-shadow:rgba(255,255,255,@opacity) 0 1px 0, inset rgba(0,0,0,@opacity2) 0 1px 0;
+}
+
+.letterpress(@opacity: 0.5){
+    text-shadow:rgba(255,255,255,@opacity) 0 1px 0;
+}
+
+.hide-text {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.animation(@name, @time, @timing, @delay, @repeat){
+    animation: @name @time @timing @delay @repeat;
+    -moz-animation: @name @time @timing @delay @repeat;
+    -webkit-animation: @name @time @timing @delay @repeat;
+    -o-animation: @name @time @timing @delay @repeat;
+}
+
+.fadeIn {
+  from {.opacity(0.0);}
+  to {.opacity(1.0);}
+}
+
+.fadeOut {
+  from {.opacity(1.0);}
+  to {.opacity(0.01);}
+}
+
+@-webkit-keyframes fadeOut {.fadeOut;}
+@-moz-keyframes fadeOut {.fadeOut;}
+@-ms-keyframes fadeOut {.fadeOut;}
+@-o-keyframes fadeOut {.fadeOut;}
+@keyframes fadeOut {.fadeOut;}
+
+@-webkit-keyframes fadeIn {.fadeIn;}
+@-moz-keyframes fadeIn {.fadeIn;}
+@-ms-keyframes fadeIn {.fadeIn;}
+@-o-keyframes fadeIn {.fadeIn;}
+@keyframes fadeIn {.fadeIn;}
+
+
+
+
+/* ============================================================ */
+/* Base */
+/* ============================================================ */
+
+
+* { margin: 0; }
+a { text-decoration: none; color: black; }
+*:focus { outline: 0; }
+
+html, body {
+	height: 101%;
+	width: 100%;
+	// .gradient(#F5F5F5, @background, #FFF);
+    // background: url('../img/mooning.png') center center #ccc;
+	font-family:'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  color: @primary;
+  background: @background;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  // .transition(0.5s);
+}
+
+body {
+  // background: url('../img/coal1.jpg') no-repeat center center;
+}
+
+h1, h2, h3 {
+	line-height: 1.2;
+	margin: 5px 0;
+}
+
+h1 {
+	font-family:'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+	letter-spacing: .5em;
+	font-weight: 300;
+	font-size: 14px;
+}
+
+h2 {
+	font-family:'Open Sans', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, sans-serif;
+	letter-spacing: .2em;
+	font-weight: 300;
+	font-size: 12px;
+	padding: 10px 0;
+}
+
+h3 {
+	font-family: "Cutive Mono", serif;
+	font-weight: 400;
+	font-size: 11px;
+}  
+
+span.vertical {
+  -ms-writing-mode: tb-rl; 
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  -ms-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  .rotation(-90deg);
+}
+
+#container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+  .animation(fadeIn, 3s, ease-in, 0s, forwards);
+}
+
+/* Header */
+
+header {
+  // transition: all 180ms ease-out;
+  // transform-style: preserve-3d;
+  // transform: perspective(800px);
+
+  position: fixed;
+  .rotation(90deg);
+  // opacity: 0.8;
+  // width: 300px;
+  left: 10px;
+  top: 45px;
+  z-index: 999;
+  .animation(fadeIn, 1s, ease-in, 0s, forwards);
+
+}
+
+#name {
+	position: absolute;
+	width: 150px;
+  height: 200px;
+  left: 50%;
+  top: 50%;
+  margin-left: -30px;
+  margin-top: -100px;
+  z-index: 3;
+  opacity: 0;
+  .animation(fadeIn, 2s, ease-in, 1s, forwards);
+
+  &:hover > .eng_name.cz  { opacity: 0.2; }
+  &:hover > .eng_name.joe { opacity: 1; }
+
+  .chn_name {
+    position: absolute;
+  }
+
+  .eng_name {
+    position: relative;
+    left: 70px;
+    cursor: default;
+
+    &.liao { top: 5px; }
+    &.cz { 
+      top: 56px;
+      line-height: 38px;
+      width: 70px;
+      transition: opacity 1s ease-out;
+      z-index: 9;
+    }
+    &.joe { 
+      top: 6px;
+      left: 0;
+      border-left: 2px solid black;
+      width: 130px;
+      text-align: right;
+      z-index: 8;
+      opacity: 0;
+      transition: opacity 1s ease-out ;
+    }
+  }
+}
+
+/* Index */
+#index {
+  position: absolute;
+  top: 150%;
+  width: 100%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  .animation(fadeIn, 3s, ease-in, 0.5s, forwards);
+	
+	li {
+    font-size: 3em;
+    text-transform: uppercase;
+		height: 500px;
+    letter-spacing: .25em;
+    
+    &.break {
+      height: 3px;
+      line-height: 3px;
+      cursor: default;
+      position: relative;
+
+      span {
+        position: absolute;
+      }
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: 500px;
+      // padding: 50px;
+      color: @secondary;
+      transition: color .25s ease-out;
+
+      &:hover {
+        color: @primary;        
+      }
+      &:hover + .blurb {
+        opacity: 1;        
+      }
+    }
+
+    .blurb {
+      position: relative;
+      font-size: 14px;
+      text-transform: lowercase;
+      letter-spacing: 0.1em;
+      opacity: 0;
+      transition: opacity 1s ease-out ;
+      z-index: -1;
+
+      &.works {
+        top: -270px;
+        left: -160px;
+      }
+      &.meditation {
+        top: -210px;
+      }
+      &.jia {
+        top: -260px;
+        left: 85px;
+      }
+    }
+	}
+
+  .social_media {
+    font-size: 18px;
+    height: 200px;
+
+    a {
+      display: inline;
+      padding: 9px;
+      line-height: 200px;
+    }
+  }
+}
+
+/* geometric shapes */
+#shapes {
+  list-style: none;
+}
+
+.geometry {
+  position: absolute;
+  background: black;
+  z-index: -2;
+  opacity: 0;
+  .animation(fadeIn, 2s, ease-in, 3s, forwards);
+
+  &.circle {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    top: 24%;
+    left: 30%;
+  }
+
+  &.triangle {
+    top: 95%;
+    left: 50%;
+    margin-left: -15px;
+    background: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 17.3px 10px;
+    border-color: transparent transparent #0a0a0a transparent;
+    .rotation(180deg);
+  }
+
+  &.square {
+    width: 15px;
+    height: 15px;
+    top: 164%;
+    left: 80%;
+  }
+}
+
+
+
+/* Asie + Footer */
+
+aside {
+  position: fixed;
+  right: -10px;
+  top: 48%;
+  width: 90px;
+  .rotation(90deg);
+  .animation(fadeIn, 3s, ease-in, 0.5s, forwards);
+
+  .wisdom {
+    color: black;
+    line-height: 36px;
+    font-size: 11px;
+  }
+
+  .vertical {
+    position: relative;
+    left: 9px;
+    top: 11px;
+    letter-spacing: 3px;
+    font-size: 8px;
+    line-height: 15px;
+	width: 22px;
+  }
+}
+
+
+.mobile {
+  // background: red;
+}
+
+@media (min-width:320px) { 
+  /* smartphones, iPhone, portrait 480x320 phones */ 
+  // h2.life {
+  //   // margin-top: 200px;
+  //   top: 50%
+  // }
+}
+@media (min-width:641px) {
+  /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+  // h2.life {
+  //   // margin-top: -12px;
+  //   // margin-left: 100px;
+  //   top: 50%;
+  //   left: 50%
+  // }
+
+  .mobile footer {
+    right: 36px;
+    left: auto;
+  }
+}
+@media (min-width:961px) { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }

@@ -1,0 +1,113 @@
+@import url(http://fonts.googleapis.com/css?family=Cutive+Mono|Open+Sans:300,700|Vidaloka);
+
+/* ============================================================ */
+/* Base */
+/* ============================================================ */
+
+html,
+body {
+  height: 101%;
+  width: 100%;
+  overflow: hidden;
+  color: #D3D3D3;
+}
+* {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: #D3D3D3;
+}
+*:focus {
+  outline: 0;
+}
+::selection {
+    background: #FFF5B8;
+    color: #000;
+    display: block;
+}
+
+::-moz-selection {
+    background: #FFF5B8;
+    color: #000;
+    display: block;
+}
+
+img::selection {
+    background: transparent;
+}
+img::-moz-selection {
+    background: transparent;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 5px 0;
+}
+h1 {
+  font-family: 'Vidaloka', sans-serif;
+  letter-spacing: .0em;
+  font-weight: 300;
+  font-size: 36px;
+  padding: 10px 0;
+  line-height: 45px;
+}
+h2 {
+  font-family: 'Vidaloka', sans-serif;
+  letter-spacing: .0em;
+  font-weight: 300;
+  font-size: 24px;
+  padding: 10px 0;
+  line-height: 30px;
+}
+h3 {
+  font-family: "Cutive Mono", serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+html {
+	background: black url(../img/404_2.gif) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 101%;
+
+}
+
+.message {
+	position: absolute;
+	width: 390px;
+	max-width: 80%;
+	top: 30px;
+	left: 30px;
+	color: #383838;
+}
+
+.message .white {
+	color: #FEFEFE;
+	font-weight: 300;
+}
+
+aside {
+  position: absolute;
+  right: -15px;
+  top: 48%;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  animation: fadeIn 3s ease-in 0s;
+  -moz-animation: fadeIn 3s ease-in 0s;
+  -webkit-animation: fadeIn 3s ease-in 0s;
+  -o-animation: fadeIn 3s ease-in 0s;
+}
+aside .wisdom {
+  color: white;
+  line-height: 18px;
+  font-size: 11px;
+}
