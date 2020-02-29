@@ -282,7 +282,7 @@ span.vertical {
   transform: rotate(-90deg);
 }
 .container {
-  min-height: 100%;
+  min-height: 101%;
 }
 /*#container {
   position: absolute;
