@@ -441,6 +441,9 @@ span.numbering {
   position: relative;
   bottom: 10px;
 }
+span.lowercase {
+  text-transform: lowercase;
+}
 .social_media {
   height: 100px;
   width: 100%;
