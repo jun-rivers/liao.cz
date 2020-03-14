@@ -394,7 +394,7 @@ header {
 }
 .link-external:after {
   display: inline-block;
-  content: '\2197';
+  content: '\2197\fe0e';
   padding-left: .8vw;
   font-weight: normal;
 }
