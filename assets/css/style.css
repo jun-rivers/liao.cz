@@ -470,9 +470,9 @@ span.lowercase {
 /* Asie + Footer */
 aside {
   position: fixed;
-  right: -100px;
+  right: -110px;
   top: 50%;
-  width: 240px;
+  width: 280px;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   -o-transform: rotate(90deg);
